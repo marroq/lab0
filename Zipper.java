@@ -1,11 +1,31 @@
 import java.util.Arrays;
 
 public class Zipper {
-
     // Deben asumir que first y second no son null
     public static int[] zipper(int[] first, int[] second) {
         // su codigo aqui
-        return new int[1];
+        int[] merge = new int[first.length+second.length];
+        int temp=0; 
+        
+        for (byte j=0; j<merge.length;) {
+            for (byte i=0; i<merge.length; i++) {
+                if (i<first.length) {
+                    if (first[i]==temp) {
+                        merge[j]=first[i];
+                        j++;
+                    }   
+                }
+                if (i<second.length) {
+                    if (second[i]==temp) {
+                        merge[j]=second[i];
+                        j++;
+                    }   
+                }
+            }
+            temp++;
+        }
+        
+        return merge;
     }
 
     // NO MODIFICAR A PARTIR DE AQUI
